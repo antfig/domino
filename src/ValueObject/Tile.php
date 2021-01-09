@@ -32,9 +32,9 @@ class Tile
      *
      * @return Tile
      */
-    public static function createFromValues(int $valueOne, int $valueTwo)
+    public static function createFromValues(int $valueOne, int $valueTwo): self
     {
-        return new static(new SquareNumber($valueOne), new SquareNumber($valueTwo));
+        return new self(new SquareNumber($valueOne), new SquareNumber($valueTwo));
     }
 
     /**

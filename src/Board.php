@@ -14,12 +14,12 @@ use Domino\ValueObject\TilePlay;
 class Board
 {
     /**
-     * @var Collection
+     * @var Collection<Tile>
      */
     private $availableTiles;
 
     /**
-     * @var Collection
+     * @var Collection<TilePlay|FirstTilePlay>
      */
     private $playedTiles;
 
@@ -78,7 +78,7 @@ class Board
      */
     public function getLeftPlayableNumber(): ?int
     {
-        /** @var TilePlay $leftElement */
+        /** @var TilePlay|FirstTilePlay|null $element */
         $element = $this->playedTiles->first();
 
         // empty board
@@ -98,7 +98,7 @@ class Board
      */
     public function getRightPlayableNumber(): ?int
     {
-        /** @var TilePlay $leftElement */
+        /** @var TilePlay|FirstTilePlay|null $element */
         $element = $this->playedTiles->last();
 
         // empty board
@@ -122,7 +122,7 @@ class Board
      *
      * @throws InvalidPlayException
      */
-    public function playLeft(Tile $tile, Player $player)
+    public function playLeft(Tile $tile, Player $player): void
     {
         $numberToConnect = $this->getLeftPlayableNumber();
 
@@ -144,7 +144,7 @@ class Board
      *
      * @throws InvalidPlayException
      */
-    public function playRight(Tile $tile, Player $player)
+    public function playRight(Tile $tile, Player $player): void
     {
         $numberToConnect = $this->getRightPlayableNumber();
 
@@ -178,7 +178,7 @@ class Board
     /**
      * Create all 28 tiles for the game
      */
-    private function initTiles()
+    private function initTiles(): void
     {
         for ($valueOne = 0; $valueOne <= 6; $valueOne++) {
             // start the value two with valueOne to not duplicate tiles
@@ -195,7 +195,7 @@ class Board
      *
      * @throws InvalidPlayException
      */
-    private function ensureValidPlay(Tile $tile, int $numberToConnect)
+    private function ensureValidPlay(Tile $tile, int $numberToConnect): void
     {
         if (!$tile->hasNumber($numberToConnect)) {
             throw new InvalidPlayException("Tile don't have the given number: " . $numberToConnect);

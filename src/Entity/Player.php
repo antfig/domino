@@ -35,7 +35,7 @@ class Player
     /**
      * @param Collection $drawTiles
      */
-    public function addTiles(Collection $drawTiles)
+    public function addTiles(Collection $drawTiles): void
     {
         $this->tiles->merge($drawTiles);
     }
@@ -43,7 +43,7 @@ class Player
     /**
      * @param Tile $tile
      */
-    public function addTile(Tile $tile)
+    public function addTile(Tile $tile): void
     {
         $this->tiles->add($tile);
     }

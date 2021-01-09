@@ -87,7 +87,7 @@ class TilePlay implements PlayInterface
      *
      * @throws InvalidTilePlayAssociationException
      */
-    private function ensureValidConnectedNumber(Tile $tile, int $connectedNumber)
+    private function ensureValidConnectedNumber(Tile $tile, int $connectedNumber): void
     {
         if ($tile->getSquareOne()->getValue() === $connectedNumber) {
             return;

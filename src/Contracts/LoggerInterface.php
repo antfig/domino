@@ -11,5 +11,5 @@ interface LoggerInterface
     /**
      * @param string $value
      */
-    public function log(string $value);
+    public function log(string $value): void;
 }

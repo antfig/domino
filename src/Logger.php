@@ -15,7 +15,7 @@ class Logger implements LoggerInterface
     /**
      * @param string $value
      */
-    public function log(string $value)
+    public function log(string $value): void
     {
         $this->logs[] = $value;
     }
