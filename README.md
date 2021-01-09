@@ -1,7 +1,7 @@
 # Domino game
 
 ## Requirements
-- PHP > 7.1
+- PHP > 7.3
 
 ## Install
 - Clone this repo and enter it
@@ -43,4 +43,9 @@ Board is now: <3:6>(6)<2:6>(2)<0:2>(0)<0:5>()<3:5>(5)
 Bob (2) played <1:5>
 ...
 Player Mark has won!
+```
+
+## Static Analysis with PHPStan
+```
+composer analyse
 ```
