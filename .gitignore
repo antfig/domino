@@ -2,3 +2,4 @@ vendor/
 coverage/
 .idea/
 build/
+.phpunit.result.cache
