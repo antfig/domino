@@ -15,7 +15,7 @@ class BoardTest extends TestCase
     /** @var Board */
     protected $board;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->board = new Board();
     }

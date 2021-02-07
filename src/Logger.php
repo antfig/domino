@@ -8,18 +8,21 @@ use Domino\Contracts\LoggerInterface;
 class Logger implements LoggerInterface
 {
     /**
-     * @var array
+     * @var array<int,string>
      */
     private $logs = [];
 
     /**
-     * @param string $value
+     * @inheritDoc
      */
-    public function log(string $value)
+    public function log(string $value): void
     {
         $this->logs[] = $value;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getLogs(): array
     {
         return $this->logs;

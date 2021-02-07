@@ -7,16 +7,18 @@ use Domino\Contracts\PlayInterface;
 use Domino\Entity\Player;
 use Domino\Exception\InvalidTilePlayAssociationException;
 
-class TilePlay implements PlayInterface
+final class TilePlay implements PlayInterface
 {
     /**
      * @var Tile
      */
     private $tile;
+
     /**
      * @var int
      */
     private $connectedNumber;
+
     /**
      * @var Player
      */
@@ -24,22 +26,15 @@ class TilePlay implements PlayInterface
 
     /**
      * @param Tile $tile
-     * @param int|null $connectedNumber
-     *
-     * @throws InvalidTilePlayAssociationException
-     */
-
-    /**
-     * TilePlay constructor.
-     *
-     * @param Tile $tile
      * @param int $connectedNumber
      * @param Player $player
+     *
+     * @throws InvalidTilePlayAssociationException
      */
     public function __construct(Tile $tile, int $connectedNumber, Player $player)
     {
         $this->ensureValidConnectedNumber($tile, $connectedNumber);
-        $this->tile            = $tile;
+        $this->tile = $tile;
         $this->connectedNumber = $connectedNumber;
         $this->player = $player;
     }
@@ -87,7 +82,7 @@ class TilePlay implements PlayInterface
      *
      * @throws InvalidTilePlayAssociationException
      */
-    private function ensureValidConnectedNumber(Tile $tile, int $connectedNumber)
+    private function ensureValidConnectedNumber(Tile $tile, int $connectedNumber): void
     {
         if ($tile->getSquareOne()->getValue() === $connectedNumber) {
             return;
@@ -99,6 +94,4 @@ class TilePlay implements PlayInterface
 
         throw new InvalidTilePlayAssociationException('Tile not have any square with the number ' . $connectedNumber);
     }
-
-
 }

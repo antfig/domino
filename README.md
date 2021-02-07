@@ -1,7 +1,8 @@
 # Domino game
+Implementation of domino game with random game generation
 
 ## Requirements
-- PHP > 7.1
+- PHP > 7.3
 
 ## Install
 - Clone this repo and enter it
@@ -24,6 +25,9 @@ $ vendor/bin/phpunit
 $ vendor/bin/phpunit --coverage-html coverage/
 $ vendor/bin/phpunit --testdox
 
+$ composer test
+$ composer coverage
+
 Docker
 $ docker run --rm --volume $PWD:/app -it wod vendor/bin/phpunit
 ```
@@ -43,4 +47,9 @@ Board is now: <3:6>(6)<2:6>(2)<0:2>(0)<0:5>()<3:5>(5)
 Bob (2) played <1:5>
 ...
 Player Mark has won!
+```
+
+## Static Analysis with PHPStan
+```
+composer analyse
 ```
