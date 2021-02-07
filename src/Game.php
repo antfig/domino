@@ -16,7 +16,7 @@ class Game
     protected $board;
 
     /**
-     * @var Collection
+     * @var Collection<Player>
      */
     protected $players;
 
