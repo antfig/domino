@@ -21,7 +21,7 @@ class Game
     protected $players;
 
     /**
-     * @var Logger
+     * @var LoggerInterface
      */
     private $logger;
 
@@ -42,7 +42,7 @@ class Game
     /**
      * @throws Exception\BoardException
      */
-    public function initGame()
+    protected function initGame(): void
     {
         $this->board = new Board();
 
@@ -70,9 +70,17 @@ class Game
     }
 
     /**
+     * @return Collection
+     */
+    public function getPlayers(): Collection
+    {
+        return $this->players;
+    }
+
+    /**
      * @throws Exception\InvalidPlayException
      */
-    public function run()
+    public function run(): void
     {
         $hasWinner = false;
 
@@ -107,7 +115,6 @@ class Game
                 }
             }
         }
-
     }
 
     /**
@@ -115,7 +122,7 @@ class Game
      *
      * @param Player $player
      *
-     * @return bool
+     * @return Tile|null
      * @throws Exception\InvalidPlayException
      */
     private function play(Player $player): ?Tile
@@ -191,5 +198,4 @@ class Game
 
         return $playedTile;
     }
-
 }

@@ -9,7 +9,7 @@ use Domino\ValueObject\Tile;
 class Player
 {
     /**
-     * @var Collection
+     * @var Collection<Tile>
      */
     private $tiles;
 
@@ -18,6 +18,9 @@ class Player
      */
     private $name;
 
+    /**
+     * @param string $name
+     */
     public function __construct(string $name)
     {
         $this->name  = $name;
@@ -33,23 +36,27 @@ class Player
     }
 
     /**
+     * Add multiple tiles to the Player
+     *
      * @param Collection $drawTiles
      */
-    public function addTiles(Collection $drawTiles)
+    public function addTiles(Collection $drawTiles): void
     {
         $this->tiles->merge($drawTiles);
     }
 
     /**
+     * Add one single tile to the player
+     *
      * @param Tile $tile
      */
-    public function addTile(Tile $tile)
+    public function addTile(Tile $tile): void
     {
         $this->tiles->add($tile);
     }
 
     /**
-     * @return Collection
+     * @return Collection<Tile>
      */
     public function getTiles(): Collection
     {
@@ -85,5 +92,4 @@ class Player
 
         return $tile;
     }
-
 }

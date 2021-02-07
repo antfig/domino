@@ -28,7 +28,7 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit --colors=always",
-        "coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-html coverage",
         "analyse": "vendor/bin/phpstan analyse"
     },
     "prefer-stable": true

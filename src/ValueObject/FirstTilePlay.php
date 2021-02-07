@@ -5,7 +5,7 @@ namespace Domino\ValueObject;
 
 use Domino\Contracts\PlayInterface;
 
-class FirstTilePlay implements PlayInterface
+final class FirstTilePlay implements PlayInterface
 {
     /**
      * @var Tile
@@ -24,5 +24,4 @@ class FirstTilePlay implements PlayInterface
     {
         return $this->tile;
     }
-
 }

@@ -1,4 +1,5 @@
 # Domino game
+Implementation of domino game with random game generation
 
 ## Requirements
 - PHP > 7.3
@@ -23,6 +24,9 @@ php domino.php
 $ vendor/bin/phpunit
 $ vendor/bin/phpunit --coverage-html coverage/
 $ vendor/bin/phpunit --testdox
+
+$ composer test
+$ composer coverage
 
 Docker
 $ docker run --rm --volume $PWD:/app -it wod vendor/bin/phpunit

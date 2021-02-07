@@ -17,6 +17,12 @@ class PlayerTest extends TestCase
         $this->assertEquals('António', $player->getName());
     }
 
+    public function testPlayerHasNoTilesWhenCreated()
+    {
+        $player = new Player('António');
+        $this->assertEmpty($player->getTiles());
+    }
+
     public function testCanAdOneTile()
     {
         $player = new Player('António');

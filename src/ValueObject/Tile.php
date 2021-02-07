@@ -5,7 +5,7 @@ namespace Domino\ValueObject;
 
 use Domino\Exception\InvalidSquareValueException;
 
-class Tile
+final class Tile
 {
     /**
      * @var SquareNumber
@@ -30,11 +30,11 @@ class Tile
      * @param int $valueTwo
      * @throws InvalidSquareValueException
      *
-     * @return Tile
+     * @return self
      */
-    public static function createFromValues(int $valueOne, int $valueTwo)
+    public static function createFromValues(int $valueOne, int $valueTwo): self
     {
-        return new static(new SquareNumber($valueOne), new SquareNumber($valueTwo));
+        return new self(new SquareNumber($valueOne), new SquareNumber($valueTwo));
     }
 
     /**
